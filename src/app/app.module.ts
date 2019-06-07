@@ -3,20 +3,27 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { PadreComponent } from './Componentes/padre/padre.component';
-import { HijoComponent } from './Componentes/hijo/hijo.component';
+import { InicioComponent } from './Componentes/inicio/inicio.component';
+import { LoginComponent } from './Componentes/login/login.component';
+import { HttpClientModule } from "@angular/common/http";
+import { FormsModule } from "@angular/forms";
+import { RequestService } from './Services/Requests/request.service';
 
 @NgModule({
   declarations: [
     AppComponent,
-    PadreComponent,
-    HijoComponent
+    InicioComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [
+    RequestService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
