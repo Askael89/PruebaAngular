@@ -12,13 +12,15 @@ import { HeremapComponent } from './Componentes/heremap/heremap.component';
 import { ExcelService } from './Services/excelservice/excel.service';
 import { SocketService } from './Services/socketService/socket.service';
 import { ChartsModule } from "ng2-charts";
+import { ChartComponent } from './Componentes/chart/chart.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     InicioComponent,
     LoginComponent,
-    HeremapComponent
+    HeremapComponent,
+    ChartComponent
   ],
   imports: [
     BrowserModule,
