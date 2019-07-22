@@ -14,6 +14,7 @@ import { SocketService } from './Services/socketService/socket.service';
 import { ChartsModule } from "ng2-charts";
 import { ChartComponent } from './Componentes/chart/chart.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,

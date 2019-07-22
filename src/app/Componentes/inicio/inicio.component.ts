@@ -4,7 +4,6 @@ import { PdfService } from 'src/app/Services/pdfservice/pdf.service';
 import { SocketService } from 'src/app/Services/socketService/socket.service';
 import * as printJS from "print-js";
 import * as jspdf from 'jspdf';
-import html2canvas from 'html2canvas';
 
 @Component({
   selector: 'app-inicio',
@@ -51,20 +50,32 @@ export class InicioComponent implements OnInit {
 
   print() {
     ///// Imprime la pagina pero ignora CSS por lo tanto ignora graficas
-    printJS({
-      printable: 'pdf',
-      type: 'html',
-      documentTitle: 'Reporte'
+    // printJS({
+    //   printable: 'pdf',
+    //   type: 'html',
+    //   documentTitle: 'Reporte'
+    // });
+
+    const elementToPrint = document.getElementById('pdf');
+    const pdf = new jspdf('p', 'pt', 'letter');
+    var options = {
+      format: 'JPEG',
+      pagesplit: true, 
+      margin: { top: 10, right: 10, bottom: 10, left: 10, useFor: 'content' },
+      dim: { w: 400, h: 600 }
+    }
+
+    // Height: 792
+    // Width: 612
+    console.log("Height: " + pdf.internal.pageSize.height + "\nWidth: " + pdf.internal.pageSize.width);
+
+    pdf.addHTML(elementToPrint, options, () => {
+      pdf.save();
     });
-    
-    
+
     // TESTING
     // var canvas = document.querySelector('chart1');
-    
-    
+
   }
-    
-
-
 
 }
